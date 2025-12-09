@@ -3,6 +3,7 @@ from pygame.time import Clock
 
 from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 from logger import log_state
+from player import Player
 
 
 def main():
@@ -13,15 +14,17 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    ship = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     while True:
         log_state()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         screen.fill("black")
+        ship.draw(screen)
         pygame.display.flip()
         clock.tick(60)
-        dt = clock.get_time()
+        # dt = clock.get_time()
 
 
 if __name__ == "__main__":
