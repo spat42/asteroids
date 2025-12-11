@@ -9,8 +9,6 @@ class Asteroid(CircleShape):
         super().__init__(x, y, radius)
 
     def draw(self, screen):
-        # coords = [self.position.x, self.position.y]
-        # print(f"Asteroid coords: {self.x}, {self.y}")
         pygame.draw.circle(screen, "white", self.position, self.radius, LINE_WIDTH)
 
     def update(self, dt):
