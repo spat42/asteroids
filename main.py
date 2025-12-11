@@ -1,3 +1,5 @@
+from multiprocessing.pool import AsyncResult
+from syslog import LOG_EMERG
 import pygame
 import sys
 
@@ -39,16 +41,22 @@ def main():
 
         updatable.update(dt)
 
-        for item1 in asteroids:
-            if item1.collides_with(ship):
+        for asteroid in asteroids:
+            if asteroid.collides_with(ship):
                 log_event("player_hit")
                 print("Game over!")
                 sys.exit()
 
+            for shot in shots:
+                if asteroid.collides_with(shot):
+                    log_event("asteroid_shot")
+                    shot.kill()
+                    asteroid.kill()
+
         screen.fill("black")
 
-        for item2 in drawable:
-            item2.draw(screen)
+        for obj in drawable:
+            obj.draw(screen)
 
         pygame.display.flip()
 
