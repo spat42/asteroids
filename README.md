@@ -1,11 +1,13 @@
 Simple Asteroids game for boot.dev guided project.
 
 Steps to set up:
-`pip install uv`
-`uv init asteroids`
-`uv python pin 3.13`
-`uv venv`
-`source .venv/bin/activate`
+```
+pip install uv
+uv init asteroids
+uv python pin 3.13
+uv venv
+source .venv/bin/activate
+```
 
 Post project suggestions to extend the game.
 
